@@ -15,7 +15,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "shell",
-    inline: "goenv install 1.2",
-    inline: "goenv rehash",
-    inline: "goenv global 1.2"
+    privileged: false,
+    path: "bin/installgo.sh"
 end
