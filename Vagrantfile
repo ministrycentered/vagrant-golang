@@ -8,6 +8,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: "33.33.33.10"
   config.ssh.forward_agent = true
 
+  config.vm.provision "shell",
+    inline: "apt-get update"
+  end
+
   config.vm.provision :puppet do |puppet|
     puppet.module_path        = "modules"
     puppet.manifests_path     = "manifests"
@@ -17,4 +21,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
     privileged: false,
     path: "bin/installgo.sh"
+  end
+
 end
