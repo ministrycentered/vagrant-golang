@@ -18,6 +18,7 @@ environments easier to manage. I have tried other golang modules for puppet and 
 Clone or copy the repo and do the following:
 ```bash
 cd /path/to/repo
+git submodule init; git submodule update
 vagrant up
 vagrant ssh
 # ...
