@@ -8,6 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: "33.33.33.10"
   config.ssh.forward_agent = true
 
+  config.vm.synced_folder "~/Code", "/vagrant/Code", nfs: true
+
   config.vm.provision "shell",
     inline: "apt-get update"
 
