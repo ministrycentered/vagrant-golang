@@ -16,6 +16,14 @@ vcsrepo { '/home/vagrant/.goenv':
   user     => 'vagrant',
 }
 
+#Goproj for aliasing go command
+vcsrepo { '/opt/goproj':
+  ensure   => present,
+  provider => git,
+  source   => 'https://github.com/divoxx/goproj.git',
+  require  => Package['git'],
+}
+
 #Set rake/rails to development
 file { '/etc/profile.d/goenv.sh':
   ensure  => present,
